@@ -1,0 +1,27 @@
+#ext-hover-mask {
+  position: absolute;
+  z-index: 2147483647;
+  display: none;
+  pointer-events: none;
+  box-sizing: border-box;
+  transition: left .05s ease-out, top .05s ease-out, width .05s ease-out, height .05s ease-out;
+}
+
+.ext-mask-hide {
+  background: rgba(244, 67, 54, .2) !important;
+  border: 2px dashed #f44336 !important;
+}
+
+.ext-mask-pick {
+  background: rgba(76, 175, 80, .2) !important;
+  border: 2px solid #4caf50 !important;
+}
+
+[data-ext-export-root] {
+  outline: 3px solid #4caf50 !important;
+  outline-offset: 2px;
+}
+
+@media print {
+  #ext-hover-mask { display: none !important; }
+}

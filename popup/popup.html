@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网页剪藏与 DOM 清理</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="panel-header">
+        <div class="brand-mark" aria-hidden="true">✦</div>
+        <div>
+          <p class="eyebrow">WEB CLIPPER</p>
+          <h1>剪藏与清理</h1>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="cleaning-heading">
+        <div class="section-heading">
+          <h2 id="cleaning-heading">页面整理</h2>
+          <span class="section-hint">先处理页面，再导出</span>
+        </div>
+        <button id="btn-toggle-hide" class="tool-button tool-button-danger" type="button">
+          <span class="button-icon" aria-hidden="true">⌫</span>
+          <span class="button-copy"><strong>元素隐藏模式</strong><small>点击页面元素即可隐藏</small></span>
+          <span class="button-state" aria-hidden="true"></span>
+        </button>
+        <button id="btn-toggle-pick" class="tool-button tool-button-success" type="button">
+          <span class="button-icon" aria-hidden="true">⌗</span>
+          <span class="button-copy"><strong>框选导出区域</strong><small>可连续选择多个容器</small></span>
+          <span class="button-state" aria-hidden="true"></span>
+        </button>
+        <button id="btn-undo" class="tool-button tool-button-neutral" type="button">
+          <span class="button-icon" aria-hidden="true">↶</span>
+          <span class="button-copy"><strong>撤销上一次隐藏</strong><small>按隐藏顺序反向恢复</small></span>
+        </button>
+      </section>
+
+      <section class="section export-section" aria-labelledby="export-heading">
+        <div class="section-heading">
+          <h2 id="export-heading">导出结果</h2>
+          <span class="section-hint">保留当前可见内容</span>
+        </div>
+        <div class="export-grid">
+          <button id="btn-export-md" class="export-button" type="button">
+            <span class="export-icon" aria-hidden="true">MD</span>
+            <span><strong>Markdown</strong><small>下载 .md 文件</small></span>
+          </button>
+          <button id="btn-export-pdf" class="export-button" type="button">
+            <span class="export-icon export-icon-pdf" aria-hidden="true">PDF</span>
+            <span><strong>打印 / PDF</strong><small>打开系统打印对话框</small></span>
+          </button>
+        </div>
+      </section>
+
+      <footer class="panel-footer">
+        <span id="status-dot" class="status-dot" aria-hidden="true"></span>
+        <p id="status-msg" class="status" role="status" aria-live="polite">准备就绪</p>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
