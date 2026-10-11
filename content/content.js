@@ -116,15 +116,13 @@
   }
 
   function exportMarkdown() {
-    if (typeof TurndownService === 'undefined') return { ok: false, message: 'Markdown 转换库未加载' };
-
-    const turndown = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced', bulletListMarker: '-' });
+    if (typeof MarkItDownHtmlConverter === 'undefined') return { ok: false, message: 'HTML 转 Markdown 转换库未加载' };
     const roots = getExportRoots();
     const sources = roots.length ? roots : [document.body];
     const markdown = sources.map(source => {
       const clone = source.cloneNode(true);
       const cleanRoot = removeExtensionMarkers(clone);
-      return cleanRoot ? turndown.turndown(cleanRoot.outerHTML || cleanRoot.innerHTML) : '';
+      return cleanRoot ? MarkItDownHtmlConverter.convert(cleanRoot) : '';
     }).filter(Boolean).join('\n\n');
     if (!markdown.trim()) return { ok: false, message: '当前区域没有可导出的内容' };
     triggerDownload(`${markdown.trim()}\n`, `web-clip-${new Date().toISOString().slice(0, 10)}.md`, 'text/markdown');

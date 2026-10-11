@@ -7,6 +7,8 @@
 - 将当前可见内容转换为 Markdown 文件。
 - 注入打印样式并打开系统打印对话框，可选择“另存为 PDF”。
 
+Markdown 导出使用 `libs/markitdown-html.js` 对项目中的 Turndown 做了浏览器端扩展，移植了 Microsoft MarkItDown 的 HTML 清洗与特殊元素规则，包括脚本/样式移除、链接协议过滤与路径转义、懒加载图片、Data URI 截断、复选框、下划线、删除线和表格。表格中的表头、表体、表尾、空单元格与单元格内格式均可转换；HTML 合并单元格会展开为占位列。具体对应关系见 [MarkItDown HTML 转 Markdown 移植说明](docs/markitdown-html-port.md)。
+
 ## 安装
 
 1. 打开 Chrome 的 `chrome://extensions`。

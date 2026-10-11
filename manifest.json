@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["libs/turndown.js", "content/content.js"],
+      "js": ["libs/turndown.js", "libs/markitdown-html.js", "content/content.js"],
       "css": ["content/content.css"],
       "run_at": "document_idle"
     }
